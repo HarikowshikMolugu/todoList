@@ -1,8 +1,11 @@
 const Sequelize = require("sequelize");
 const config = require("../config/config.json");
-const sequelize = new Sequelize({
-	connectionString: process.env.POSTGRES_URL + "?sslmode=require",
-});
+const sequelize = new Sequelize(
+	config.database,
+	config.username,
+	config.password,
+	config
+);
 
 // Test the connection
 sequelize
